@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Insecure Design - {{ mode.title() }}</title>
+</head>
+<body>
+  <h2>A04 - Insecure Design ({{ mode.title() }})</h2>
+  <form method="post">
+    <label>Choose a color: <input type="text" name="color" required></label><br>
+    <button type="submit">Submit</button>
+  </form>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+  <a href="/mode/{{ mode }}">← Back to Vulnerabilities</a>
+</body>
+</html>
