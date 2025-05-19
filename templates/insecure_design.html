@@ -2,6 +2,10 @@
 
 {% block title %}Insecure Design - {{ mode.title() }}{% endblock %}
 
+{% block back %}
+  <a href="/mode/{{ mode }}" class="back-arrow">←</a>
+{% endblock %}
+
 {% block content %}
 <div class="page-wrapper">
   <div class="login-container">

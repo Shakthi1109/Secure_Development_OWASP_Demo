@@ -158,16 +158,15 @@ a:hover {
   color: #e0f7ff;
   font-size: 14px;
   line-height: 1.4;
-  
-  max-height: 0;           /* Start collapsed */
+  max-height: 0;           
   overflow: hidden;
   transition: max-height 0.4s ease;
-  /* Removed display:none */
 }
 
 /* When visible, add a class 'visible' to toggle-text to expand */
 .toggle-text.visible {
   max-height: 500px; /* Enough to show the entire content */
+  display: block;
 }
 
 

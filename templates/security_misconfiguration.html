@@ -1,17 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Security Misconfiguration - {{ mode.title() }}</title>
-</head>
-<body>
-  <h2>A05 - Security Misconfiguration ({{ mode.title() }})</h2>
-  <form method="post">
-    <label>Enter Param (type "allowed" to pass): <input type="text" name="param" required></label><br>
-    <button type="submit">Submit</button>
-  </form>
-  {% if message %}
-    <p>{{ message }}</p>
-  {% endif %}
-  <a href="/mode/{{ mode }}">← Back to Vulnerabilities</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Security Misconfiguration - {{ mode.title() }}{% endblock %}
+
+{% block back %}
+  <a href="/mode/{{ mode }}" class="back-arrow">←</a>
+{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+  <div class="login-container">
+    <h2>⚙️ A05 - Security Misconfiguration <span class="mode-tag">({{ mode.title() }})</span></h2>
+    <form method="post">
+      <label for="param">🧪 Enter Param (type "allowed" to pass)</label>
+      <input type="text" name="param" id="param" placeholder="Try entering a value" required>
+      <button type="submit">Submit</button>
+    </form>
+    {% if message %}
+      <p class="message">{{ message }}</p>
+    {% endif %}
+  </div>
+
+  <div class="info-box">
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
+      <p id="hint-text" class="toggle-text">Try submitting values like "admin", "true", or an empty param.</p>
+    </div>
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
+      <p id="description-text" class="toggle-text">
+        Security misconfiguration happens when security settings are left at insecure defaults, misconfigured, or incomplete. This can expose sensitive data or allow unauthorized actions.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  function toggleVisibility(id) {
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
+{% endblock %}
