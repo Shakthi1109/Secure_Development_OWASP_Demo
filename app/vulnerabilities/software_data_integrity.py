@@ -1,5 +1,5 @@
 import json
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request
 
 software_data_bp = Blueprint("software_data", __name__)
 
@@ -8,27 +8,25 @@ software_data_bp = Blueprint("software_data", __name__)
 def insecure_software_data():
     result = None
     if request.method == "POST":
+        user_input = request.form["data"]
         try:
-            user_input = request.form["data"]
-            # Insecure: blindly deserializing untrusted input
-            obj = json.loads(user_input)
+            # 🚨 Insecure: eval executes arbitrary Python code!
+            obj = eval(user_input)
             result = f"Deserialized name: {obj.get('name', 'N/A')}"
         except Exception as e:
             result = f"Error: {str(e)}"
     return render_template("software_data_integrity.html", mode="insecure", result=result)
+
 
 # Secure route: validates structure before deserializing
 @software_data_bp.route("/secure/software-data-integrity", methods=["GET", "POST"])
 def secure_software_data():
     result = None
     if request.method == "POST":
+        user_input = request.form["data"]
         try:
-            user_input = request.form["data"]
-            # Secure: validates input format
-            if not user_input.strip().startswith("{") or "name" not in user_input:
-                raise ValueError("Invalid format.")
             obj = json.loads(user_input)
-            result = f"Deserialized name: {obj.get('name', 'N/A')}"
+            result = f"Securely parsed data: {obj.get('name', 'N/A')}"
         except Exception as e:
             result = f"Error: {str(e)}"
     return render_template("software_data_integrity.html", mode="secure", result=result)
