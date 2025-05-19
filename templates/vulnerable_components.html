@@ -1,30 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Vulnerable Components - {{ mode.title() }}</title>
-    {% if mode == "insecure" %}
-    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
-    {% else %}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    {% endif %}
+  {% if mode == "insecure" %}
+  <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+  {% else %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  {% endif %}
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
+{% block back %}
+  <a href="/mode/{{ mode }}" class="back-arrow">←</a>
+{% endblock %}
 <body>
-    <h2>A06 - Vulnerable & Outdated Components ({{ mode.title() }})</h2>
-    <p>Enter your name and click submit:</p>
-    <form id="nameForm">
-        <input type="text" id="name" placeholder="Your name">
+
+  <div class="page-wrapper">
+    <div class="login-container">
+      <h2>🔧 A06 - Vulnerable & Outdated Components <span class="mode-tag">({{ mode.title() }})</span></h2>
+      <p>Enter your name and click submit:</p>
+      <form id="nameForm">
+        <input type="text" id="name" placeholder="Your name" autocomplete="off" required />
         <button type="submit">Submit</button>
-    </form>
-    <div id="result"></div>
+      </form>
+      <div id="result"></div>
+      
+    </div>
 
-    <script>
-        var appMode = "{{ mode }}";  // Now JS knows if it's 'secure' or 'insecure'
-    </script>
+  <div class="info-box">
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
+      <p id="hint-text" class="toggle-text">
+        Try using SQL injection payloads like `' OR '1'='1` in the username field.
+      </p>
+    </div>
 
-    <script>
-        if (appMode === "insecure") {
-      $(document).ready(function() {
-        $("#nameForm").submit(function(e) {
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
+      <p id="description-text" class="toggle-text">
+        Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query.
+        The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+      </p>
+    </div>
+  </div>
+
+  </div>
+
+  <script>
+  function toggleVisibility(id) {
+    const el = document.getElementById(id);
+    if (el.style.display === 'block') {
+      el.style.display = 'none';
+    } else {
+      el.style.display = 'block';
+    }
+  }
+  </script>
+ 
+  <script>
+    var appMode = "{{ mode }}";
+
+    if (appMode === "insecure") {
+      $(document).ready(function () {
+        $("#nameForm").submit(function (e) {
           e.preventDefault();
           var name = $("#name").val();
           // Insecure: vulnerable to XSS
@@ -32,8 +72,8 @@
         });
       });
     } else {
-      $(document).ready(function() {
-        $("#nameForm").submit(function(e) {
+      $(document).ready(function () {
+        $("#nameForm").submit(function (e) {
           e.preventDefault();
           const name = $("#name").val();
           // Secure: prevents XSS
@@ -41,9 +81,7 @@
         });
       });
     }
-    </script>
+  </script>
 
-
-  <a href="/mode/{{ mode }}">← Back to Vulnerabilities</a>
 </body>
 </html>

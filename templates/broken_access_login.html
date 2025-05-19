@@ -1,14 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Broken Access Control - {{ mode.title() }}</title>
-</head>
-<body>
-  <h2>A2 - Broken Access Control ({{ mode.title() }})</h2>
-  <form method="post">
-    <label>Username: <input type="text" name="username"></label><br>
-    <button type="submit">Login as User</button>
-  </form>
-  <a href="/mode/{{ mode }}">← Back to Vulnerabilities</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Broken Access Control - {{ mode.title() }}{% endblock %}
+
+{% block back %}
+  <a href="/mode/{{ mode }}" class="back-arrow">←</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="page-wrapper">
+  <div class="login-container">
+    <h2>🚫 A2 - Broken Access Control <span class="mode-tag">({{ mode.title() }})</span></h2>
+    <form method="post">
+      <label for="username">👤 Username</label>
+      <input type="text" name="username" id="username" placeholder="Enter your username">
+      <button type="submit">🔐 Login as User</button>
+    </form>
+  </div>
+
+  <div class="info-box">
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
+      <p id="hint-text" class="toggle-text">Try logging in as admin to see access control fail.</p>
+    </div>
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
+      <p id="description-text" class="toggle-text">
+        Broken Access Control allows unauthorized users to access restricted functionality or data.
+        Attackers can exploit this to escalate privileges or access sensitive information.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  function toggleVisibility(id) {
+    const el = document.getElementById(id);
+    if (el.style.display === 'block') {
+      el.style.display = 'none';
+    } else {
+      el.style.display = 'block';
+    }
+  }
+</script>
+{% endblock %}
