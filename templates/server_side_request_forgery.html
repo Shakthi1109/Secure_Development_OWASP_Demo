@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ mode.title() }} - SSRF</title>
+</head>
+<body>
+  <h2>{{ mode.title() }} - Server-Side Request Forgery (SSRF)</h2>
+  <form method="POST">
+    <label>Enter a URL to fetch:</label><br>
+    <input type="text" name="url" size="60" value="https://httpbin.org/get"><br><br>
+    <button type="submit">Fetch</button>
+  </form>
+  {% if result %}
+    <p><strong>Result:</strong></p>
+    <pre>{{ result }}</pre>
+  {% endif %}
+  <a href="/">Back to Home</a>
+</body>
+</html>
+    
