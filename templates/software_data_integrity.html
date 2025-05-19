@@ -10,9 +10,18 @@
     <textarea name="data" rows="5" cols="40">{ "name": "Alice" }</textarea><br><br>
     <button type="submit">Submit</button>
   </form>
+
+  {% if mode == "insecure" %}
+    <p style="color: red;">
+      ⚠️ Insecure Mode: Try input like 
+      <code>{"name": __import__('os').system('echo HACKED')}</code>
+    </p>
+  {% endif %}
+
   {% if result %}
     <p><strong>Result:</strong> {{ result }}</p>
   {% endif %}
+  
   <a href="/">Back to Home</a>
 </body>
 </html>

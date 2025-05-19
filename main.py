@@ -6,6 +6,7 @@ from app.vulnerabilities.insecure_design import design_bp
 from app.vulnerabilities.security_misconfiguration import misconfig_bp
 from app.vulnerabilities.vulnerable_components import components_bp
 from app.vulnerabilities.identification_authentication import identification_auth_bp
+from app.vulnerabilities.software_data_integrity import software_data_bp
 
 
 app = Flask(__name__)
@@ -20,6 +21,8 @@ app.register_blueprint(design_bp)
 app.register_blueprint(misconfig_bp)
 app.register_blueprint(components_bp)
 app.register_blueprint(identification_auth_bp)
+app.register_blueprint(software_data_bp)
+
 
 
 @app.route("/")
