@@ -4,6 +4,7 @@ from app.vulnerabilities.broken_access import access_bp
 from app.vulnerabilities.cryptographic_failures import crypto_bp
 from app.vulnerabilities.insecure_design import design_bp
 from app.vulnerabilities.security_misconfiguration import misconfig_bp
+from app.vulnerabilities.vulnerable_components import components_bp
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -15,6 +16,7 @@ app.register_blueprint(access_bp)
 app.register_blueprint(crypto_bp)
 app.register_blueprint(design_bp)
 app.register_blueprint(misconfig_bp)
+app.register_blueprint(components_bp)
 
 @app.route("/")
 def index():
