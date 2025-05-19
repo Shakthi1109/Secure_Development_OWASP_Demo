@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ mode.title() }} - Software & Data Integrity Failures</title>
+</head>
+<body>
+  <h2>{{ mode.title() }} - Software & Data Integrity Failures</h2>
+  <form method="POST">
+    <label>Enter JSON:</label><br>
+    <textarea name="data" rows="5" cols="40">{ "name": "Alice" }</textarea><br><br>
+    <button type="submit">Submit</button>
+  </form>
+  {% if result %}
+    <p><strong>Result:</strong> {{ result }}</p>
+  {% endif %}
+  <a href="/">Back to Home</a>
+</body>
+</html>
