@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vulnerable Components - {{ mode.title() }}</title>
+    {% if mode == "insecure" %}
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    {% else %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% endif %}
+</head>
+<body>
+    <h2>A06 - Vulnerable & Outdated Components ({{ mode.title() }})</h2>
+    <p>Enter your name and click submit:</p>
+    <form id="nameForm">
+        <input type="text" id="name" placeholder="Your name">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        var appMode = "{{ mode }}";  // Now JS knows if it's 'secure' or 'insecure'
+    </script>
+
+    <script>
+        if (appMode === "insecure") {
+      $(document).ready(function() {
+        $("#nameForm").submit(function(e) {
+          e.preventDefault();
+          var name = $("#name").val();
+          // Insecure: vulnerable to XSS
+          $("#result").html("Hello, " + name);
+        });
+      });
+    } else {
+      $(document).ready(function() {
+        $("#nameForm").submit(function(e) {
+          e.preventDefault();
+          const name = $("#name").val();
+          // Secure: prevents XSS
+          $("#result").text("Hello, " + name);
+        });
+      });
+    }
+    </script>
+
+
+  <a href="/mode/{{ mode }}">← Back to Vulnerabilities</a>
+</body>
+</html>
