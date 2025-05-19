@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ vuln }} - {{ mode.title() }}</title>
+</head>
+<body>
+  <h2>{{ vuln }} Demonstration ({{ mode.title() }})</h2>
+  <form method="post">
+    <label>Username: <input type="text" name="username"></label><br>
+    <label>Password: <input type="text" name="password"></label><br>
+    <button type="submit">Login</button>
+  </form>
+  <p>{{ message }}</p>
+  <a href="/mode/{{ mode }}">← Back</a>
+</body>
+</html>
