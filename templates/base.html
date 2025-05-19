@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
+    {% block back %}{% endblock %}
+
   <div class="container">
     {% block content %}{% endblock %}
   </div>

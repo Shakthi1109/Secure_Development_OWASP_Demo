@@ -2,7 +2,12 @@
 
 {% block title %}Broken Access Control - {{ mode.title() }}{% endblock %}
 
+{% block back %}
+  <a href="/mode/{{ mode }}" class="back-arrow">←</a>
+{% endblock %}
+
 {% block content %}
+
 <div class="page-wrapper">
   <div class="login-container">
     <h2>🚫 A2 - Broken Access Control <span class="mode-tag">({{ mode.title() }})</span></h2>
@@ -11,7 +16,6 @@
       <input type="text" name="username" id="username" placeholder="Enter your username">
       <button type="submit">🔐 Login as User</button>
     </form>
-    <a href="/mode/{{ mode }}">← Back to Vulnerabilities</a>
   </div>
 
   <div class="info-box">
