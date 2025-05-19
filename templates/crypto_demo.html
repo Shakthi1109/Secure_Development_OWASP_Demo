@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cryptographic Failures - {{ mode.title() }}</title>
+</head>
+<body>
+  <h2>A02 - Cryptographic Failures ({{ mode.title() }})</h2>
+  <form method="post">
+    <label>Enter Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Submit</button>
+  </form>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+  <a href="/mode/{{ mode }}">← Back to Vulnerabilities</a>
+</body>
+</html>
