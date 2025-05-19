@@ -1,0 +1,167 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('../img/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* New wrapper around login + info */
+.page-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Login box container */
+.login-container {
+  background: rgba(31, 30, 30, 0.649);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  width: 400px; /* fixed width */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.mode-tag {
+  font-size: 16px;
+  color: #00e6e6;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #fff;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  outline: none;
+  transition: background 0.3s;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #ddd;
+}
+
+input:focus,
+textarea:focus {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+button {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+a {
+  display: block;
+  margin-top: 20px;
+  color: #00e6e6;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Info box on the right of login */
+.info-box {
+  flex: 1;
+  max-width: 250px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  color: #e0f7ff;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.toggle-item {
+  margin-bottom: 20px;
+}
+
+.toggle-btn {
+  background: #0072ff;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #005bb5;
+}
+
+.toggle-text {
+  margin-top: 10px;
+  color: #e0f7ff;
+  font-size: 14px;
+  line-height: 1.4;
+  
+  max-height: 0;           /* Start collapsed */
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  /* Removed display:none */
+}
+
+/* When visible, add a class 'visible' to toggle-text to expand */
+.toggle-text.visible {
+  max-height: 500px; /* Enough to show the entire content */
+}
