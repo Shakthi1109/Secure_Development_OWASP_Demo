@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Security Misconfiguration - {{ mode.title() }}</title>
+</head>
+<body>
+  <h2>A05 - Security Misconfiguration ({{ mode.title() }})</h2>
+  <form method="post">
+    <label>Enter Param (type "allowed" to pass): <input type="text" name="param" required></label><br>
+    <button type="submit">Submit</button>
+  </form>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+  <a href="/mode/{{ mode }}">← Back to Vulnerabilities</a>
+</body>
+</html>
