@@ -86,7 +86,8 @@ textarea:focus {
 }
 
 button {
-  background: linear-gradient(to right, #414242, #455971);
+  margin-top: 20px;
+  background: linear-gradient(to right, #8bc1da, #1090bb);
   color: #fff;
   padding: 12px;
   font-size: 16px;
@@ -98,7 +99,7 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  background: linear-gradient(to right, #26292d, #314d55);
+  background: linear-gradient(to right, #6c9ad5, #0dccd6);
 }
 
 a {
@@ -247,4 +248,100 @@ a:hover {
   transform: scale(1.2);
 }
 
+/* Index.html style */
 
+.mode-select-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.mode-select-container {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 50px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.mode-select-title {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.mode-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  flex: 1;
+  min-width: 180px;
+  max-width: 250px;
+  text-decoration: none;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: #fff;
+  padding: 20px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.mode-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+.mode-select-link {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.external-link-box {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  font-size: 16px;
+  color: #00e6e6;
+}
+
+.external-link-box a {
+  color: #00e6e6;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.external-link-box a:hover {
+  text-decoration: underline;
+}
+
+
+/* Injection.html */
+
+.message {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #00e6e6;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}

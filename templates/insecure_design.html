@@ -1,17 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Insecure Design - {{ mode.title() }}</title>
-</head>
-<body>
-  <h2>A04 - Insecure Design ({{ mode.title() }})</h2>
-  <form method="post">
-    <label>Choose a color: <input type="text" name="color" required></label><br>
-    <button type="submit">Submit</button>
-  </form>
-  {% if message %}
-    <p>{{ message }}</p>
-  {% endif %}
-  <a href="/mode/{{ mode }}">← Back to Vulnerabilities</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Insecure Design - {{ mode.title() }}{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+  <div class="login-container">
+    <h2>🎨 A04 - Insecure Design <span class="mode-tag">({{ mode.title() }})</span></h2>
+    <form method="post">
+      <label for="color">🎯 Enter Color</label>
+      <input type="text" name="color" id="color" placeholder="Try 'red', 'blue', or 'green'">
+      <button type="submit">Submit</button>
+    </form>
+    {% if message %}
+      <p class="message">{{ message }}</p>
+    {% endif %}
+  </div>
+
+  <div class="info-box">
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
+      <p id="hint-text" class="toggle-text">Try submitting unexpected values like &lt;script&gt; or SQL fragments.</p>
+    </div>
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
+      <p id="description-text" class="toggle-text">
+        Insecure Design refers to missing or ineffective control design. This often happens when assumptions are made about inputs without implementing strict validation or threat modeling.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  function toggleVisibility(id) {
+    const el = document.getElementById(id);
+    if (el.style.display === 'block') {
+      el.style.display = 'none';
+    } else {
+      el.style.display = 'block';
+    }
+  }
+</script>
+{% endblock %}

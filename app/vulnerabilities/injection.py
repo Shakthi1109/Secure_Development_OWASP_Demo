@@ -12,7 +12,7 @@ def secure_injection():
             message = "Logged in securely!"
         else:
             message = "Invalid credentials (secure)"
-    return render_template("demo.html", vuln="Injection", mode="secure", message=message)
+    return render_template("injection.html", vuln="Injection", mode="secure", message=message)
 
 @injection_bp.route("/insecure/injection", methods=["GET", "POST"])
 def insecure_injection():
@@ -25,4 +25,4 @@ def insecure_injection():
             message = "SQL Injection Successful! Login bypassed!"
         else:
             message = "Invalid credentials (insecure)"
-    return render_template("demo.html", vuln="Injection", mode="insecure", message=message)
+    return render_template("injection.html", vuln="Injection", mode="insecure", message=message)
