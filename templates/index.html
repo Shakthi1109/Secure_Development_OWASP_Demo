@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}OWASP Top 10 Demonstration{% endblock %}
+
+{% block content %}
+
+<div class="mode-select-wrapper">
+  <div class="mode-select-container">
+    <h1 class="mode-select-title">OWASP Top 10 Demonstration</h1>
+    <div class="mode-buttons">
+      <a href="/mode/insecure" class="mode-btn">🔓 Insecure Mode</a>
+      <a href="/mode/secure" class="mode-btn">🔐 Secure Mode</a>
+    </div>
+    <div class="external-link-box">
+    <a href="https://owasp.org/www-project-top-ten/" target="_blank">
+      🌐 OWASP TOP 10 OFFICIAL WEBSITE
+    </a>
+  </div>
+  </div>
+</div>
+
+{% endblock %}

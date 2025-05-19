@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ mode.title() }} Mode - Vulnerabilities{% endblock %}
+
+{% block back %}
+  <a href="/" class="back-arrow">←</a>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="vuln-grid-wrapper">
+    <h2>{{ mode.title() }} Mode - Vulnerabilities</h2>
+
+    <div class="vuln-grid">
+      <ul class="vuln-list">
+        <li><a href="/{{ mode }}/broken-access">A01 - Broken Access Control</a></li>
+        <li><a href="/{{ mode }}/cryptographic-failures">A02 - Cryptographic Failures</a></li>
+        <li><a href="/{{ mode }}/injection">A03 - Injection</a></li>
+        <li><a href="/{{ mode }}/insecure-design">A04 - Insecure Design</a></li>
+        <li><a href="/{{ mode }}/security-misconfiguration">A05 - Security Misconfiguration</a></li>
+      </ul>
+
+      <ul class="vuln-list">
+        <li><a href="/{{ mode }}/vulnerable-components">A06 - Vulnerable & Outdated Components</a></li>
+        <li><a href="/{{ mode }}/identification-authentication">A07 - Identification and Authentication Failures</a></li>
+        <li><a href="/{{ mode }}/software-data-integrity">A08 - Software and Data Integrity Failures</a></li>
+        <li><a href="/{{ mode }}/logging-monitoring">A09 - Security Logging and Monitoring Failures</a></li>
+        <li><a href="/{{ mode }}/ssrf">A10 - Server-Side Request Forgery (SSRF)</a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

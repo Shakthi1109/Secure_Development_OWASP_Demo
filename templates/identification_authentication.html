@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Identification & Authentication - {{ mode.title() }}{% endblock %}
+
+{% block back %}
+  <a href="/mode/{{ mode }}" class="back-arrow">←</a>
+{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+  <div class="login-container">
+    <h2>🔐 Identification & Authentication <span class="mode-tag">({{ mode.title() }})</span></h2>
+    <form method="POST" autocomplete="off">
+      <label for="username">👤 Username</label>
+      <input type="text" name="username" id="username" placeholder="Enter your username" required>
+      
+      <label for="password">🔑 Password</label>
+      <input type="password" name="password" id="password" placeholder="Enter your password" required>
+      
+      <button type="submit">Login</button>
+    </form>
+    {% if error %}
+      <p class="message error">{{ error }}</p>
+    {% endif %}
+  </div>
+
+  <div class="info-box">
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
+      <p id="hint-text" class="toggle-text">Try common passwords or username 'admin' to test access control.</p>
+    </div>
+    <div class="toggle-item">
+      <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
+      <p id="description-text" class="toggle-text">
+        Identification & Authentication vulnerabilities occur when users can bypass login or use weak credentials to gain unauthorized access.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  function toggleVisibility(id) {
+    const el = document.getElementById(id);
+    if (el.style.display === 'block') {
+      el.style.display = 'none';
+    } else {
+      el.style.display = 'block';
+    }
+  }
+</script>
+{% endblock %}

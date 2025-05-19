@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+</head>
+<body>
+  {% include 'menu.html' %}
+  <h1>Welcome, {{ username }}!</h1>
+  <p>You are logged in ({{ mode.title() }} Mode)</p>
+  <a href="{{ url_for('identification_auth.insecure_logout') if mode == 'insecure' else url_for('identification_auth.secure_logout') }}">
+  Logout
+</a>
+
+</body>
+</html>
