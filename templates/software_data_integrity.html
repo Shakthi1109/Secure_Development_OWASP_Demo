@@ -26,8 +26,8 @@
     <div class="toggle-item">
       <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
       <p id="hint-text" class="toggle-text">
-        <br>Insecure: Try {"name": __import__('os').system('echo HACKED')}</br>
-        <br>Secure: try { "name": "User" }</br>
+        <br>Insecure: Try <br>{"name": __import__('os').system('echo HACKED')}</br>
+        <br>Secure: Try { "name": "User" }</br>
         
       </p>
     </div>
@@ -35,6 +35,7 @@
       <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
       <p id="description-text" class="toggle-text">
         Software and Data Integrity Failures occur when untrusted data or code is accepted without validation, leading to security breaches.
+        This vulnerability shows how insecure deserialization can allow attackers to execute arbitrary system commands. The code executes a command on the server. While it returns 0 (the exit code), the real danger is in what gets executed behind the scenes.
       </p>
     </div>
   </div>

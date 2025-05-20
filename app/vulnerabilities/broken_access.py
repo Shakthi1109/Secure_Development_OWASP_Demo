@@ -12,10 +12,10 @@ def secure_broken_access():
         username = request.form.get("username")
         if username == "admin":
             session["role"] = "admin"
-            message = f"Welcome, Admin! Access Granted to {session.get('role')}! (Secure)"
+            message = f"Welcome, Admin! Access Granted to {session.get('role')}!"
         else:
             session["role"] = "user"
-            message = f"Access Denied! (Secure)"
+            message = f"Access Denied!"
     return render_template("broken_access_login.html", mode="secure", message=message)
 
 @access_bp.route("/secure/admin")
