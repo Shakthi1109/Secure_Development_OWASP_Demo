@@ -9,7 +9,7 @@ def insecure_identification():
     error = ""
     if request.method == "POST":
         username = request.form["username"]
-        password = request.form["password"]
+        password = request.form["admin123"]
         # Insecure: hardcoded credentials
         if username == "admin" and password == "password":
             return redirect(url_for("identification_auth.insecure_welcome"))

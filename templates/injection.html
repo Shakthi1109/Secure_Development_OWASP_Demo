@@ -9,7 +9,7 @@
 {% block content %}
 <div class="page-wrapper">
   <div class="login-container">
-    <h2>💉 A1 - Injection <span class="mode-tag">({{ mode.title() }})</span></h2>
+    <h2>💉 A03 - Injection <span class="mode-tag">({{ mode.title() }})</span></h2>
     <form method="post">
       <label for="username">👤 Username</label>
       <input type="text" name="username" id="username" placeholder="Enter your username">
@@ -30,15 +30,17 @@
     <div class="toggle-item">
       <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
       <p id="hint-text" class="toggle-text">
-        Try using SQL injection payloads like `' OR '1'='1` in the username field.
+        <br>Secure (Demo): <br>Username: admin <br>Password: admin123</br>
+        <br>Insecure: Try using the below SQL injection payloads in the username field : </br>
+        <br>` ' OR '1'='1 ` or ` -- `</br>
       </p>
     </div>
 
     <div class="toggle-item">
       <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
       <p id="description-text" class="toggle-text">
-        Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query.
-        The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+        <br>Injection flaws occur when untrusted data is sent to an interpreter without sanitization.</br>
+        <br>SQL Injection : user input is directly embedded into an SQL query without proper sanitization, allowing attackers to manipulate the query’s logic.</br>
       </p>
     </div>
   </div>
