@@ -33,8 +33,9 @@ cd Secure_Development_OWASP_Demo
 
 2. Create a Virtual Environment
 ```bash
-python3 -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+python -m venv venv
+On Linux: source venv/bin/activate   
+On Windows: venv\Scripts\activate
 ```
 3. Install Required Packages
 ```bash
@@ -42,7 +43,7 @@ pip install -r requirements.txt
 ```
 4. Run the Flask App
 ```bash
-flask --app app run
+flask --app main run
 ```
 Now open your browser and go to:
 http://127.0.0.1:5000
