@@ -14,20 +14,23 @@
     <form method="post">
       <label for="username">👤 Username</label>
       <input type="text" name="username" id="username" placeholder="Enter your username">
-      <button type="submit">🔐 Login as User</button>
+      <button type="submit">🔐 Login </button>
     </form>
+
+    {% if message %}
+      <div class="message">{{ message }}</div>
+    {% endif %}
   </div>
 
   <div class="info-box">
     <div class="toggle-item">
       <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
-      <p id="hint-text" class="toggle-text">Try logging in as admin to see access control fail.</p>
+      <p id="hint-text" class="toggle-text">Username : admin</p>
     </div>
     <div class="toggle-item">
       <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
       <p id="description-text" class="toggle-text">
-        Broken Access Control allows unauthorized users to access restricted functionality or data.
-        Attackers can exploit this to escalate privileges or access sensitive information.
+        Only admin has access in the secure version. Whereas in the insecure version anyone can get access. Hence, the Access control is broken.
       </p>
     </div>
   </div>
