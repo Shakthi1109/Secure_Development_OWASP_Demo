@@ -9,7 +9,7 @@
 {% block content %}
 <div class="page-wrapper">
   <div class="login-container">
-    <h2>🔐 Identification & Authentication <span class="mode-tag">({{ mode.title() }})</span></h2>
+    <h2>🔐 A07 Identification & Authentication <span class="mode-tag">({{ mode.title() }})</span></h2>
     <form method="POST" autocomplete="off">
       <label for="username">👤 Username</label>
       <input type="text" name="username" id="username" placeholder="Enter your username" required>
@@ -27,7 +27,10 @@
   <div class="info-box">
     <div class="toggle-item">
       <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
-      <p id="hint-text" class="toggle-text">Try common passwords or username 'admin' to test access control.</p>
+      <p id="hint-text" class="toggle-text">
+        <br>Insecure: Try common username 'admin' and easy password 'password' to test access control.</br>
+        <br>Secure login: username: admin and password: StrongPass123</br>
+      </p>
     </div>
     <div class="toggle-item">
       <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
