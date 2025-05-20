@@ -27,8 +27,8 @@ This is a Flask-based web application that demonstrates **secure vs. insecure im
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/owasp-top10-demo.git
-cd owasp-top10-demo
+git clone https://github.com/Shakthi1109/Secure_Development_OWASP_Demo.git
+cd Secure_Development_OWASP_Demo
 ```
 
 2. Create a Virtual Environment
