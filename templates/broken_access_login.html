@@ -10,7 +10,7 @@
 
 <div class="page-wrapper">
   <div class="login-container">
-    <h2>🚫 A2 - Broken Access Control <span class="mode-tag">({{ mode.title() }})</span></h2>
+    <h2>🚫 A01 - Broken Access Control <span class="mode-tag">({{ mode.title() }})</span></h2>
     <form method="post">
       <label for="username">👤 Username</label>
       <input type="text" name="username" id="username" placeholder="Enter your username">
@@ -30,7 +30,10 @@
     <div class="toggle-item">
       <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
       <p id="description-text" class="toggle-text">
-        Only admin has access in the secure version. Whereas in the insecure version anyone can get access. Hence, the Access control is broken.
+        <br>Only admin has access in the secure version. Whereas in the insecure version anyone can get access. Hence, the Access control is broken.</br>
+        
+        <br>Broken Access Control allows unauthorized users to access restricted functionality or data.
+        Attackers can exploit this to escalate privileges or access sensitive information.</br>
       </p>
     </div>
   </div>

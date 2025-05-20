@@ -163,6 +163,7 @@ a:hover {
   transition: max-height 0.4s ease;
 }
 
+
 /* When visible, add a class 'visible' to toggle-text to expand */
 .toggle-text.visible {
   max-height: 500px; /* Enough to show the entire content */
@@ -343,4 +344,28 @@ a:hover {
   word-wrap: break-word;
   overflow-wrap: break-word;
   max-width: 100%;
+}
+
+/* Security Misconfig and outdated component page*/
+
+.display-text {
+  margin-top: 10px;
+  color: #e0f7ff;
+  font-size: 14px;
+  line-height: 1.4;          
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.result-box{
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: large;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+
 }

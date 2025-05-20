@@ -9,7 +9,7 @@ def secure_injection():
         username = request.form.get("username")
         password = request.form.get("password")
         if username == "admin" and password == "admin123":
-            message = "Logged in securely!"
+            message = "Access Granted!"
         else:
             message = "Invalid credentials (secure)"
     return render_template("injection.html", vuln="Injection", mode="secure", message=message)

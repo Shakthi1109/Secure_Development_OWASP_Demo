@@ -20,5 +20,5 @@ def insecure_crypto():
     message = ""
     if request.method == "POST":
         password = request.form.get("password")
-        message = f"Insecure: Stored password in plain text: {password}"
+        message = f"Password is stored in plain text: {password} (Insecure)"
     return render_template("crypto_demo.html", mode="insecure", message=message)
