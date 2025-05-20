@@ -9,26 +9,32 @@
 {% block content %}
 <div class="page-wrapper">
   <div class="login-container">
-    <h2>⚙️ A05 - Security Misconfiguration <span class="mode-tag">({{ mode.title() }})</span></h2>
-    <form method="post">
-      <label for="param">🧪 Enter Param (type "allowed" to pass)</label>
-      <input type="text" name="param" id="param" placeholder="Try entering a value" required>
-      <button type="submit">Submit</button>
+    <h2>🛠 A05 - Security Misconfiguration <span class="mode-tag">({{ mode.title() }})</span></h2>
+    <form method="POST">
+      <label>Enter a number:</label>
+      <input type="text" name="number" placeholder="e.g. 10 or 0">
+      <button type="submit">Divide</button>
     </form>
+
     {% if message %}
-      <p class="message">{{ message }}</p>
+      <div class="result-box">
+        <strong>{{ message|safe }}</strong>
+      </div>
     {% endif %}
   </div>
 
   <div class="info-box">
     <div class="toggle-item">
-      <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
-      <p id="hint-text" class="toggle-text">Try submitting values like "admin", "true", or an empty param.</p>
+      <button class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
+      <p id="hint-text" class="toggle-text">
+        Try dividing by zero or entering text to trigger an error. The insecure version leaks debug info.
+      </p>
     </div>
     <div class="toggle-item">
-      <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
+      <button class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
       <p id="description-text" class="toggle-text">
-        Security misconfiguration happens when security settings are left at insecure defaults, misconfigured, or incomplete. This can expose sensitive data or allow unauthorized actions.
+        Security Misconfiguration includes exposing stack traces, using default settings, or leaking environment variables.
+        This demo simulates debug info shown to users, which can help attackers understand internal code.
       </p>
     </div>
   </div>
@@ -39,7 +45,7 @@
 <script>
   function toggleVisibility(id) {
     const el = document.getElementById(id);
-    el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
   }
 </script>
 {% endblock %}

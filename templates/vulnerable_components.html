@@ -20,44 +20,28 @@
   <div class="page-wrapper">
     <div class="login-container">
       <h2>🔧 A06 - Vulnerable & Outdated Components <span class="mode-tag">({{ mode.title() }})</span></h2>
-      <p>Enter your name and click submit:</p>
+      <p>Enter your name :</p>
       <form id="nameForm">
         <input type="text" id="name" placeholder="Your name" autocomplete="off" required />
         <button type="submit">Submit</button>
       </form>
-      <div id="result"></div>
+      <div id="result" class="result-box"></div>
       
     </div>
 
   <div class="info-box">
-    <div class="toggle-item">
-      <button type="button" class="toggle-btn" onclick="toggleVisibility('hint-text')">Hint</button>
-      <p id="hint-text" class="toggle-text">
-        Try using SQL injection payloads like `' OR '1'='1` in the username field.
+      <button type="button" class="btn-static">Hint</button>
+      <p id="hint-text" class="display-text">
+        Try ` &lt;script&gt;alert("XXS")&lt;/script&gt; `
       </p>
-    </div>
 
-    <div class="toggle-item">
-      <button type="button" class="toggle-btn" onclick="toggleVisibility('description-text')">Description</button>
-      <p id="description-text" class="toggle-text">
-        Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query.
-        The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+      <button type="button" class="btn-static">Description</button>
+      <p id="description-text" class="display-text">
+        This demo highlights the risks of using outdated or vulnerable components. The insecure version includes an old jQuery library (v1.7.2) that is known to have XSS vulnerabilities that allows scripts to execute through input fields.
       </p>
-    </div>
   </div>
 
   </div>
-
-  <script>
-  function toggleVisibility(id) {
-    const el = document.getElementById(id);
-    if (el.style.display === 'block') {
-      el.style.display = 'none';
-    } else {
-      el.style.display = 'block';
-    }
-  }
-  </script>
  
   <script>
     var appMode = "{{ mode }}";

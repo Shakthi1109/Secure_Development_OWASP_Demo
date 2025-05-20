@@ -7,31 +7,37 @@ access_bp = Blueprint('access', __name__)
 
 @access_bp.route("/secure/broken-access", methods=["GET", "POST"])
 def secure_broken_access():
+    message=""
     if request.method == "POST":
         username = request.form.get("username")
         if username == "admin":
             session["role"] = "admin"
+            message = f"Welcome, Admin! Access Granted to {session.get('role')}! (Secure)"
         else:
             session["role"] = "user"
-        return redirect(url_for("access.secure_admin_page"))
-    return render_template("broken_access_login.html", mode="secure")
+            message = f"Access Denied! (Secure)"
+    return render_template("broken_access_login.html", mode="secure", message=message)
 
 @access_bp.route("/secure/admin")
 def secure_admin_page():
+    message=""
     if session.get("role") != "admin":
-        return "Access Denied. Admins only!"
-    return "Welcome, Admin! This is a protected page."
+        message = f"Welcome, Admin! Login success!"
+    return render_template("broken_access_login.html", mode="secure", message=message)
 
 @access_bp.route("/insecure/broken-access", methods=["GET", "POST"])
 def insecure_broken_access():
+    message=""
     if request.method == "POST":
         username = request.form.get("username")
         # Insecure: anyone can access /admin just by POSTing anything
         session["user"] = username
-        return redirect(url_for("access.insecure_admin_page"))
-    return render_template("broken_access_login.html", mode="insecure")
+        message = f"Access Granted to {session.get('user', 'Unknown')}! (Insecure)"
+    return render_template("broken_access_login.html", mode="insecure", message=message)
+    
+    
 
-@access_bp.route("/insecure/admin")
-def insecure_admin_page():
-    # No role check!
-    return f"Access Granted to {session.get('user', 'Unknown')}! (Insecure)"
+# @access_bp.route("/insecure/admin")
+# def insecure_admin_page():
+#     # No role check!
+#     return f"Access Granted to {session.get('user', 'Unknown')}! (Insecure)"
